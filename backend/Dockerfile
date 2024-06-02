@@ -26,4 +26,4 @@ COPY . .
 # При старте контейнера запустить сервер разработки...
 # CMD ["python", "manage.py", "runserver", "0:8000"]
 # Запуск через gunicorn.
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "kittygram_backend.wsgi"]
+CMD ["gunicorn", "--bind", "0.0.0.0:9000", "kittygram_backend.wsgi"]
