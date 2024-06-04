@@ -42,7 +42,7 @@ jobs:
         cd backend/
         python manage.py test
   build_and_push_to_docker_hub:
-    name: Push Docker image to DockerHub
+    name: Push backend Docker image to DockerHub
     runs-on: ubuntu-latest
     needs: tests
     steps:
@@ -116,7 +116,7 @@ jobs:
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
-          context: ./gateway/
+          context: ./nginx/
           push: true
           tags: pullveryzator/kittygram_gateway:latest
   deploy:
@@ -128,7 +128,7 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
-    - name: Copy docker-compose.yml via ssh
+    - name: Copy docker-compose.production.yml via ssh
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
@@ -145,7 +145,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
-          cd kittygram
+          cd kittygram/kittygram_final
           sudo docker compose -f docker-compose.production.yml pull
           sudo docker compose -f docker-compose.production.yml down
           sudo docker compose -f docker-compose.production.yml up -d
