@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Cat, Achievement
+from .models import Achievement, Cat
 
 
 class CatAdmin(admin.ModelAdmin):
