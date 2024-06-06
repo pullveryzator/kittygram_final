@@ -2,13 +2,15 @@
 import os
 from pathlib import Path
 
+from .debug_flag import debug_flag
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', '')
 
-DEBUG = int(os.getenv('DEBUG', ''))
+DEBUG = debug_flag()
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.kittygram.info', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
