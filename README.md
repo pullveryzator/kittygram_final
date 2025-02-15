@@ -83,13 +83,16 @@
 - backend/: Директория с бэкенд-приложением на Django.
 - frontend/: Директория с фронтенд-приложением на React.
 - nginx/: Директория с файлами конфигурации gateway.
+- .github/workflows/: Конфигурации GitHub Actions для CI/CD.
 - tests/: Тесты pytest.
 - .env.example: Пример оформления .env
 - docker-compose.production.yml: Файл конфигурации docker для развертывания на сервере.
 - docker-compose.yml: Файл конфигурации docker для развертывания локально.
 - .gitignore: Исключения git.
-- 
-- .github/workflows/: Конфигурации GitHub Actions для CI/CD.
+- pytest.ini: Настройки pytest.
+- README.md: Этот файл.
+- setup.cfg: Настройки flake8.
+- tests.yml: Файл необходимый для успешной проверки проекта на учебном сервере.
 
 Лицензия
 Этот проект распространяется под лицензией MIT. Подробнее см. в файле LICENSE.
